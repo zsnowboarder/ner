@@ -5,8 +5,6 @@
 
 
 #pip install date-spacy
-get_ipython().system('python -m spacy download en_core_web_lg')
-
 
 # In[55]:
 
