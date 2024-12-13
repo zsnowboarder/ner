@@ -11,10 +11,8 @@
 
 
 import spacy
-from date_spacy import find_dates
 
 nlp = spacy.load("en_core_web_md")
-nlp.add_pipe("find_dates", before="ner")
 
 
 # In[37]:
@@ -40,6 +38,7 @@ def replace_entities(doc):
 
 # Replace entities in the text
 replaced_text = replace_entities(doc)
+st.write(replaced_text)
 #print(replaced_text)
 
 
