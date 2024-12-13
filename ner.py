@@ -5,21 +5,32 @@
 
 
 #pip install date-spacy
+get_ipython().system('python -m spacy download en_core_web_lg')
 
 
-# In[3]:
+# In[55]:
 
 
 import spacy
+import streamlit as st
+from date_spacy import find_dates
 
 nlp = spacy.load("en_core_web_lg")
+nlp.add_pipe("find_dates", before="ner")
 
 
-# In[37]:
+# In[ ]:
 
 
-text = """On December 10, 2024 at 1200h, Victim John was walking on the street in 300 block Main Street. Suspect Tom assaulted John. Witness Mary (1997/01/01) called police. PC 9204 Dave Thompson arrived and arrested suspect."""
+#python -m spacy download en_core_web_lg
 
+
+# In[56]:
+
+
+text = """On December 10, 2024 at 1200h, Victim John was walking on the street in 300 block Main Street. Suspect Tom assaulted John. Witness Mary (1997/01/01) called police. PC 9204 Dave Thompson arrived and arrested suspect. Police found a gun and a knife after searching."""
+
+text = st.text_area(label="Enter your synopsis", value=text)
 # Process the text
 doc = nlp(text)
 
@@ -38,8 +49,8 @@ def replace_entities(doc):
 
 # Replace entities in the text
 replaced_text = replace_entities(doc)
-st.write(replaced_text)
 #print(replaced_text)
+st.write("New text:\n" + replaced_text)
 
 
 # for ent in doc.ents:
