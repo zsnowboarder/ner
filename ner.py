@@ -26,7 +26,7 @@ nlp.add_pipe("find_dates", before="ner")
 # In[56]:
 
 
-st.title("NER Radact")
+st.title("NER Redact")
 st.write("This is a proof of concept of using Name Entity Recognition (NER) an approach leveraging Natural Language Processing to extract key information for processing. There are many use cases. Redacting is only one example.")
 text = """On December 10, 2024 at 1200h, Victim John was walking on the street in 300 block Main Street. Suspect Tom assaulted John. Witness Mary (1997/01/01) called police. PC 9204 Dave Thompson arrived and arrested suspect. Police found a gun and a knife after searching."""
 
